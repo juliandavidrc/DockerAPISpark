@@ -79,8 +79,8 @@ def query_hiredemp():
             cursor.execute(ddl_table_hired_emp)
             cursor.execute(dml_delete_hired_emp) 
             #cursor.execute("select count(*) from hired_employees")              
-            #for index, row in data_hiredemp.iloc[0:1000,].iterrows():
-            for index, row in data_hiredemp.iterrows():
+            for index, row in data_hiredemp.iloc[0:1000,].iterrows():
+            #for index, row in data_hiredemp.iterrows():
                 cursor.execute(dml_insert_hired_emp, (row.id, row.nameemp, row.field2, row.department_id, row.job_id),)
           
         connection.commit()
