@@ -85,7 +85,27 @@ def query_hiredemp():
           
         connection.commit()
 
-    
+@app.get("/query/backup")
+def query_bkp():               
+
+    # Queries Hired Employees
+    query_bkp = "select * from departments;"
+
+    ## Query1: Number of employees hired for each job and department in 2021 divided by quarter. The table must be ordered alphabetically by department and job.
+    with connection:
+        with connection.cursor() as cursor:            
+            cursor.execute(query_bkp)    
+            columns = [column[0] for column in cursor.description]
+            objdata = []          
+            for row in cursor.fetchall():
+                objdata.append(dict(zip(columns, row)))
+
+            dfresult = pd.DataFrame(objdata)                
+            # Save as csv to call compressAvro backup
+            dfresult.to_csv('data/backup/csv/departments.gz', compression='gzip')
+            #dfresult.write.format("avro").mode('overwrite').save("avro-test")            
+                
+    return {"Result": objdata,}, 200         
 
 @app.route('/')
 def run():
