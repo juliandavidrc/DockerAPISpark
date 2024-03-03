@@ -85,6 +85,8 @@ def query_hiredemp():
           
         connection.commit()
 
+    
+
 @app.route('/')
 def run():
     return 'Hello, World App!'
