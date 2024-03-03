@@ -59,6 +59,31 @@ def query_dept():
         
     return "Data Dims Loaded", 201
 
+@app.post("/load/hired_employees")
+def query_hiredemp():               
+
+    #load df Hired Employees
+    data_hiredemp = pd.read_csv(path_hiredemp, header=None, names=['id', 'nameemp', 'field2', 'department_id', 'job_id'])       
+    data_hiredemp=data_hiredemp.fillna(0) 
+    data_hiredemp['field2'] = data_hiredemp['field2'].replace(0,'1900-01-01T00:00:00Z')   
+
+    # Queries Hired Employees
+    ddl_table_hired_emp = "CREATE TABLE IF NOT EXISTS hired_employees(id int, nameemp varchar(200), field2 varchar(100), department_id int, job_id int);"
+    dml_delete_hired_emp = "TRUNCATE TABLE hired_employees;"
+    dml_insert_hired_emp = "INSERT INTO hired_employees (id, nameemp, field2, department_id, job_id) VALUES (%s,%s,%s,%s,%s);"
+
+    ## INSERT
+    with connection:
+        with connection.cursor() as cursor:
+            #Load Hired Emp
+            cursor.execute(ddl_table_hired_emp)
+            cursor.execute(dml_delete_hired_emp) 
+            #cursor.execute("select count(*) from hired_employees")              
+            #for index, row in data_hiredemp.iloc[0:1000,].iterrows():
+            for index, row in data_hiredemp.iterrows():
+                cursor.execute(dml_insert_hired_emp, (row.id, row.nameemp, row.field2, row.department_id, row.job_id),)
+          
+        connection.commit()
 
 @app.route('/')
 def run():
