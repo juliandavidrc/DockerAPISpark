@@ -25,9 +25,13 @@ Endpoint Query Analysis (HTTP GET Request)
 
 
 
-## To call avro backup feature: Read package from spark/avro version
+## To call avro backup feature
 
-    `PUT /backupAvro`
+The spark-avro module is external and not included in spark-submit or spark-shell by default.
+You can also use --packages to add org.apache.spark:spark-avro_2.12 and its dependencies directly.
+Documentation: `https://spark.apache.org/docs/3.5.1/sql-data-sources-avro.html`
+
+    `Method PUT /backupAvro`
 
         os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 compressAvro.py &")
 
