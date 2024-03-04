@@ -40,12 +40,6 @@ Avro backup saved on: `data/backup/avro/`
 
 Avro restored on: `data/backup/csv/_name_restored`
 
-## Restore avro backup feature
-
-    `Method PUT /restoreAvro`
-
-Avro restored on: `data/backup/csv/_name_restored`
-
 ## Docker image deployment
 
 Run:
@@ -71,3 +65,37 @@ Service container up and running:
 
 ![alt text](images/service.png)
 
+## AWS Solution Services
+
+* AWS S3 
+![Alt text](aws_solution/s3buckets.jpg)
+
+* AWS GlueCrawlers
+![Alt text](aws_solution/GlueCrawlers.JPG)
+
+* AWS GlueDatabase
+![Alt text](aws_solution/GlueDatabase.JPG)
+
+* AWS GlueTables
+![Alt text](aws_solution/GlueTables.JPG)
+
+* AWS GlueTable Hired Employees
+![Alt text](aws_solution/GlueTableHR.JPG)
+
+* AWS Athena Service
+![Alt text](aws_solution/AthenaService.JPG)
+
+* AWS IAM_RoleGlue
+![Alt text](aws_solution/IAM_RoleGlue.JPG)
+
+* AWS Analysis Hired Employees by Dept, Quarter, 2021
+![Alt text](aws_solution/hired_emp_bydept_by_q.jpg)
+
+* AWS Analysis Hired Employees by Dept, Job, Quarter, 2021
+![Alt text](aws_solution/hired_emp_bydept_job_by_q.jpg)
+
+* AWS Horizontal Bar Chart by Dept, 2021, Drill Down
+![Alt text](aws_solution/analysis2.jpg)
+
+* AWS Horizontal Bar Chart by Dept, Quarter, 2021, Drill Down
+![Alt text](aws_solution/analysis21.jpg)
