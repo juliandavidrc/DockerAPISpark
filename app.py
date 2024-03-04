@@ -4,9 +4,6 @@ from flask import Flask
 import pandas as pd
 import psycopg2
 
-
-app = Flask(__name__)
-
 load_dotenv()
 
 app = Flask(__name__)
@@ -199,4 +196,4 @@ def run():
     return 'Hello, World App!'
 
 if __name__ == '__main__':
-   app.run(host="0.0.0.0", port=int("5000"), debug=True)
+   app.run()
