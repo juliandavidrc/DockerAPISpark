@@ -91,6 +91,7 @@ def query_bkp():
     # tables to backup
     query_bkp_dept = "select * from departments;"
     query_bkp_jobs = "select * from jobs;"    
+    query_bkp_hire = "select * from hired_employees;"    
 
     ## Query1: Number of employees hired for each job and department in 2021 divided by quarter. The table must be ordered alphabetically by department and job.
     with connection:
@@ -106,6 +107,17 @@ def query_bkp():
             dfresult.to_csv('data/backup/csv/departments.gz', index=False, compression='gzip')
             #dfresult.write.format("avro").mode('overwrite').save("avro-test")            
 
+            cursor.execute(query_bkp_hire)    
+            columns = [column[0] for column in cursor.description]
+            objdata = []          
+            for row in cursor.fetchall():
+                objdata.append(dict(zip(columns, row)))
+
+            dfresult = pd.DataFrame(objdata)                
+            # Save as csv to call compressAvro backup
+            dfresult.to_csv('data/backup/csv/hired_employees.gz', index=False, compression='gzip')
+
+
             cursor.execute(query_bkp_jobs)    
             columns = [column[0] for column in cursor.description]
             objdata = []          
@@ -115,6 +127,7 @@ def query_bkp():
             dfresult = pd.DataFrame(objdata)                
             # Save as csv to call compressAvro backup
             dfresult.to_csv('data/backup/csv/jobs.gz', index=False, compression='gzip')
+           
                 
     return {"Result": objdata,}, 200         
 
