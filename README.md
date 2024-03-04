@@ -1,5 +1,6 @@
 # RestApi Python/SQL Database + Docker flask/spark container
 
+<!-- GETTING STARTED -->
 Endpoint to load batch 1 up to 1000 transactions (HTTP Post Request)
 
 Load dimension data (departments & jobs)
