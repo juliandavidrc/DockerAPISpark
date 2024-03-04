@@ -61,3 +61,9 @@ Once the image was created, run next command to deploy and run on port exposed:
 ![alt text](images/dockerbuild.png)
 
 ![alt text](images/dockerls.png)
+
+![alt text](images/container.png)
+
+Service container up and running:
+
+![alt text](images/service.png)
