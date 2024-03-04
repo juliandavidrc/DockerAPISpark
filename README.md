@@ -39,3 +39,25 @@ Avro backup saved on: `data/backup/avro/`
     `Method PUT /restoreAvro`
 
 Avro restored on: `data/backup/csv/_name_restored`
+
+## Restore avro backup feature
+
+    `Method PUT /restoreAvro`
+
+Avro restored on: `data/backup/csv/_name_restored`
+
+## Docker image deployment
+
+Run:
+
+    `docker build -t "python-flaskapp" .`
+
+![alt text](images/docker_container.png)
+
+Once the image was created, run next command to deploy and run on port exposed:
+
+    `docker run -dp 127.0.0.1:5000:5000 python-flaskapp:latest`
+
+![alt text](images/dockerbuild.png)
+
+![alt text](images/dockerls.png)
