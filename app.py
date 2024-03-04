@@ -178,6 +178,21 @@ def backupAvro():
             
     return "Backup Avro Done!", 200
 
+@app.post("/restoreAvro")
+def restoreAvro():               
+    #Call Spark version env to use Avro formats, spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1
+    os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 restoreAvro.py &")    
+
+    # COPY COMMAND
+    ddl_restore = "/copy departments_bkp FROM 'data/backup/csv/departments_restored/part-00000-92d2a954-e634-45a5-85db-3f1f7b4fbdc7-c000.csv' WITH CSV HEADER DELIMITER ',';";
+    
+    with connection:
+        with connection.cursor() as cursor:            
+            cursor.execute(ddl_restore)                        
+        connection.commit()
+    
+            #cursor.close()
+    return "Copy table executed", 200
 
 @app.route('/')
 def run():
