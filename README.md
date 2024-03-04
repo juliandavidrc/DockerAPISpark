@@ -54,6 +54,13 @@ Run:
 
 ![alt text](images/docker_container.png)
 
+To deploy spark container with a master node and one worker node
+    `docker-compose up -d" .`
+
+![alt text](images/docker_container.png)
+
+![alt text](images/dockerspark.png)
+
 Once the image was created, run next command to deploy and run on port exposed:
 
     `docker run -dp 127.0.0.1:5000:5000 python-flaskapp:latest`
@@ -67,3 +74,4 @@ Once the image was created, run next command to deploy and run on port exposed:
 Service container up and running:
 
 ![alt text](images/service.png)
+
