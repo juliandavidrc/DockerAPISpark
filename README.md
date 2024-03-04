@@ -1,4 +1,4 @@
-# RestApi Python/SQL Database + Docker container solution
+# RestApi Python/SQL Database + Docker FLASK/SPARK container
 
 Endpoint to load batch 1 up to 1000 transactions (HTTP Post Request)
 
@@ -10,9 +10,9 @@ Load hired employees data
 
 
 
-# To call avro backup feature: Read package from spark/avro version
+## To call avro backup feature: Read package from spark/avro version
 
-    PUT `/backupAvro`
+    `PUT /backupAvro`
 
         os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 compressAvro.py &")
 
