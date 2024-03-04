@@ -131,6 +131,15 @@ def query_bkp():
                 
     return {"Result": objdata,}, 200         
 
+
+@app.put("/backupAvro")
+def backupAvro():               
+    #Call Spark version env to use Avro formats, spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1
+    os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 compressAvro.py &")
+            
+    return "Backup Avro Done!", 200
+
+
 @app.route('/')
 def run():
     return 'Hello, World App!'
