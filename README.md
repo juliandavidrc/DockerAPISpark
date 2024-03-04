@@ -33,3 +33,9 @@ Documentation: `https://spark.apache.org/docs/3.5.1/sql-data-sources-avro.html`
         os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 compressAvro.py &")
 
 Avro backup saved on: `data/backup/avro/`
+
+## Restore avro backup feature
+
+    `Method PUT /restoreAvro`
+
+Avro restored on: `data/backup/csv/_name_restored`
