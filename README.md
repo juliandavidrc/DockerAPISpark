@@ -54,8 +54,6 @@ Run:
 
 ![alt text](images/docker_container.png)
 
-![alt text](images/docker_container.png)
-
 To deploy spark container with a master node and one worker node
     `docker-compose up -d" .`
 
