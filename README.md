@@ -22,9 +22,6 @@ Endpoint Query Analysis (HTTP GET Request)
 
 ![Alt text](images/qr2_2.jpg)
 
-
-
-
 ## To call avro backup feature
 
 The spark-avro module is external and not included in spark-submit or spark-shell by default.
@@ -35,3 +32,4 @@ Documentation: `https://spark.apache.org/docs/3.5.1/sql-data-sources-avro.html`
 
         os.system("/opt/homebrew/Cellar/apache-spark/3.5.1/bin/spark-submit --packages org.apache.spark:spark-avro_2.12:3.5.1 compressAvro.py &")
 
+Avro backup saved on: `data/backup/avro/`
